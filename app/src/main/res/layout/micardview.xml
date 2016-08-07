@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/cardviewModelo"
+    android:layout_width="250dp"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="15dp"
+    >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/linearCardview1"
+        android:orientation="vertical">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/pulgoso9patch"
+            android:id="@+id/ivMascota"
+            />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/linearCardview2"
+            android:orientation="horizontal">
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/huesoblanco9patch"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="PULGOSO!!"
+                android:layout_gravity="center_vertical"
+                android:id="@+id/tvNombreMascota"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="6"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="90dp"
+                android:id="@+id/tvNumLikes"
+                />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/huesoamarillo9patch"
+                android:layout_gravity="center_vertical"
+
+                />
+
+        </LinearLayout>
+
+    </LinearLayout>
+</android.support.v7.widget.CardView>
