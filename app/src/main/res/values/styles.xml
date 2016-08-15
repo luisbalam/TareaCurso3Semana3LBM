@@ -8,5 +8,11 @@
         <item name="colorAccent">@color/colorAccent</item>
         <item name="android:textColorPrimary">@color/colorTexto</item>
     </style>
+    <style name="estiloRaisedButton" parent="Theme.AppCompat.Light">
+
+        <item name="colorButtonNormal">@color/colorPrimary</item>
+        <item name="colorControlHighlight">@color/colorPrimaryDark</item>
+        <item name="android:textColor">@color/colorBlanco</item>
+    </style>
 
 </resources>

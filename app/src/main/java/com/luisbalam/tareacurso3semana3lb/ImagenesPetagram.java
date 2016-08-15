@@ -14,6 +14,11 @@ public class ImagenesPetagram {
         this.likesUsuarios = likesUsuarios;
     }
 
+    public ImagenesPetagram(int likesUsuarios, int imagen){
+        this.imagen = imagen;
+        this.likesUsuarios = likesUsuarios;
+    }
+
     public String getNombre() {
         return nombre;
 

@@ -1,3 +1,19 @@
 <resources>
     <string name="app_name">TareaCurso3Semana3LB</string>
+    <string name="item_acerca">Acerca de</string>
+    <string name="item_contacto">Contacto</string>
+    <string name="hint_contacto_nombre">Ingresa tu nombre</string>
+    <string name="hint_contacto_correo">Ingresa tu correo</string>
+    <string name="hint_contacto_mensaje">Escribe un mensaje</string>
+    <string name="texto_boton_enviar_mensaje">Enviar comentario</string>
+    <string name="titulo_contacto">COMENTARIOS</string>
+    <string name="subtitulo_biografia">Tel. 1234567890</string>
+    <string name="nombre_biografia">Luis Alberto Balam Mukul</string>
+    <string name="texto_biografia">Soy docente de educación media superior. Estoy cursando actualmente esta especialización en android, la cuál me parece muy interesante.</string>
+    <string name="correo_biografia">Email: micorreo@gmail.com</string>
+    <string name="gracias_biografia">Gracias por calificarme</string>
+    <string name="nombre_mascota">Mel</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
