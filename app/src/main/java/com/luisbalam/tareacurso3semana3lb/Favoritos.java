@@ -10,11 +10,12 @@ import android.widget.ImageButton;
 
 import java.util.ArrayList;
 
-public class Favoritos extends AppCompatActivity {
+public class Favoritos extends AppCompatActivity implements IFavoritos {
     Toolbar toolbarFavoritos;
     RecyclerView recyclerFavoritos;
     ArrayList<ImagenesPetagram> datosMascotasFavoritos;
     ImageButton ibEstrella;
+    FavoritosPresentador favoritosPresentador;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,24 +26,36 @@ public class Favoritos extends AppCompatActivity {
         ibEstrella=(ImageButton) findViewById(R.id.ibEstrella);
         ibEstrella.setVisibility(View.INVISIBLE);
         recyclerFavoritos= (RecyclerView) findViewById(R.id.recyclerFavoritos);
-        LinearLayoutManager llm=new LinearLayoutManager(this);
-        llm.setOrientation(LinearLayoutManager.VERTICAL);
-        recyclerFavoritos.setLayoutManager(llm);
-        asigDatos();
-        crearAdaptador();
+
+        favoritosPresentador=new FavoritosPresentador(this,this);
+
+        //asigDatos();
     }
 
-    public void asigDatos (){
+    /*public void asigDatos (){
         datosMascotasFavoritos = new ArrayList<ImagenesPetagram>();
         datosMascotasFavoritos.add(new ImagenesPetagram("Bruno",R.drawable.pug9patch,19));
         datosMascotasFavoritos.add(new ImagenesPetagram("El pulgas",R.drawable.pulgoso9patch,12));
         datosMascotasFavoritos.add(new ImagenesPetagram("El largirucho",R.drawable.salchicha9path,10));
         datosMascotasFavoritos.add(new ImagenesPetagram("Rambito",R.drawable.perritodurmiendo9patch,15));
         datosMascotasFavoritos.add(new ImagenesPetagram("Wiskas Jr",R.drawable.gatito9patch,13));
+    }*/
+
+    @Override
+    public ImagenesPetagramAdapter crearAdaptador(ArrayList<ImagenesPetagram> imagenesMascotasFavoritos) {
+        ImagenesPetagramAdapter adaptadorMascotas = new ImagenesPetagramAdapter(imagenesMascotasFavoritos,this);
+        return adaptadorMascotas;
     }
 
-    public void crearAdaptador () {
-        ImagenesPetagramAdapter adaptadorMascotas = new ImagenesPetagramAdapter(datosMascotasFavoritos);
-        recyclerFavoritos.setAdapter(adaptadorMascotas);
+    @Override
+    public void inicializarAdaptador(ImagenesPetagramAdapter imagenesPetagramAdapter) {
+        recyclerFavoritos.setAdapter(imagenesPetagramAdapter);
+    }
+
+    @Override
+    public void inicializarLayoutManager() {
+        LinearLayoutManager llm=new LinearLayoutManager(this);
+        llm.setOrientation(LinearLayoutManager.VERTICAL);
+        recyclerFavoritos.setLayoutManager(llm);
     }
 }

@@ -24,6 +24,7 @@
             android:id="@+id/linearCardview2"
             android:orientation="horizontal">
             <ImageButton
+                android:id="@+id/ivHuesoBlanco"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/huesoblanco9patch"

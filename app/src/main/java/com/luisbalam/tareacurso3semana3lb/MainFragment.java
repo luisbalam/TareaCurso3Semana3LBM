@@ -16,7 +16,7 @@ import java.util.ArrayList;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class MainFragment extends Fragment {
+public class MainFragment extends Fragment implements IMainFragment {
 
 
     public MainFragment() {
@@ -25,6 +25,7 @@ public class MainFragment extends Fragment {
 
     RecyclerView recyclerMain;
     ArrayList<ImagenesPetagram> datosMascotas;
+    MainFragmentPresentador mainFragmentPresentador;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -32,17 +33,16 @@ public class MainFragment extends Fragment {
         View v=inflater.inflate(R.layout.fragment_main, container, false);
 
         recyclerMain= (RecyclerView) v.findViewById(R.id.recyclerMain);
-        LinearLayoutManager llm=new LinearLayoutManager(getActivity());
-        llm.setOrientation(LinearLayoutManager.VERTICAL);
-        recyclerMain.setLayoutManager(llm);
 
-        asigDatos();
-        crearAdaptador();
+        mainFragmentPresentador=new MainFragmentPresentador(this,getContext());
+
+        //asigDatos();
+        //crearAdaptador();
 
         return v;
     }
 
-    public void asigDatos (){
+    /*public void asigDatos (){
         datosMascotas = new ArrayList<ImagenesPetagram>();
         datosMascotas.add(new ImagenesPetagram("Bruno",R.drawable.pug9patch,19));
         datosMascotas.add(new ImagenesPetagram("El pulgas",R.drawable.pulgoso9patch,12));
@@ -52,11 +52,24 @@ public class MainFragment extends Fragment {
         datosMascotas.add(new ImagenesPetagram("Rambito",R.drawable.perritodurmiendo9patch,15));
         datosMascotas.add(new ImagenesPetagram("El tristón",R.drawable.perrotriste9patch,5));
         datosMascotas.add(new ImagenesPetagram("Wiskas Jr",R.drawable.gatito9patch,13));
+    }*/
+
+    public ImagenesPetagramAdapter crearAdaptador (ArrayList<ImagenesPetagram> imagenesMascotas) {
+        ImagenesPetagramAdapter adaptadorMascotas = new ImagenesPetagramAdapter(imagenesMascotas,getActivity());
+        return adaptadorMascotas;
     }
 
-    public void crearAdaptador () {
-        ImagenesPetagramAdapter adaptadorMascotas = new ImagenesPetagramAdapter(datosMascotas);
-        recyclerMain.setAdapter(adaptadorMascotas);
+    @Override
+    public void inicializarAdaptador(ImagenesPetagramAdapter imagenesPetagramAdapter) {
+        recyclerMain.setAdapter(imagenesPetagramAdapter);
+    }
+
+    @Override
+    public void inicializarLayoutManager() {
+        LinearLayoutManager llm=new LinearLayoutManager(getActivity());
+        llm.setOrientation(LinearLayoutManager.VERTICAL);
+        recyclerMain.setLayoutManager(llm);
+
     }
 
 }

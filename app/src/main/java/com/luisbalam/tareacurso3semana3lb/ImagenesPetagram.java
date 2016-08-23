@@ -4,6 +4,7 @@ package com.luisbalam.tareacurso3semana3lb;
  * Created by luisbalam on 06/08/16.
  */
 public class ImagenesPetagram {
+    int id;
     String nombre;
     int imagen;
     int likesUsuarios;
@@ -19,9 +20,21 @@ public class ImagenesPetagram {
         this.likesUsuarios = likesUsuarios;
     }
 
+    public ImagenesPetagram(){
+        //constructor vacio
+    }
+
     public String getNombre() {
         return nombre;
 
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public void setNombre(String nombre) {
